@@ -6,13 +6,13 @@ def get_conexion():
 
 
 class CursorPool():
-    # método enter
+    # metodo enter
     # Inicio del bloque with
     def __enter__(self):
             self.conn = get_conexion()
             self.cursor = self.conn.cursor()
             return self.__cursor
-    # método exit
+    # metodo exit
     # Fin del bloque with
     def __exit__(self, exception_type, exception_value, exception_traceback):
             if exception_value:
@@ -21,5 +21,5 @@ class CursorPool():
                     self.conn.commit()
             # Cerramos el cursor
             self.__cursor.close()
-            # Regresar la conexión al pool
-            #liberar_conexion(self.conn)
+            # Regresar la conexiï¿½n al pool
+            liberar_conexion(self.conn)
